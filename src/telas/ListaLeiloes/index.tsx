@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import useListaLeiloes from '../../hooks/useListaLeiloes';
 
-import { View, FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import Leilao from './componentes/Leilao';
 
 export default function ListaLeiloes() {
   const [leiloes, obtemLeiloes] = useListaLeiloes();
   const [carregando, setCarregando] = useState(false);
-  
+
   const atualizaLista = async () => {
     setCarregando(true);
     await obtemLeiloes();

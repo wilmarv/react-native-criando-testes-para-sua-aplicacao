@@ -5,14 +5,17 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import Cartao from '../../../componentes/Cartao';
 
 import { formataDecimalParaReal } from '../../../negocio/formatadores/moeda';
+import PropsLance from '../../../interfaces/lance';
 
-export default function Lance({ id, valor, cor }) {
+export default function Lance({ id, valor, cor }: PropsLance) {
   return <Cartao style={estilos.cartao}>
-    <View style={estilos.inicio}>
-      <FontAwesome5 name="hand-paper" size={24} color={cor} />
-      <Text style={estilos.identificador}>#{id}</Text>
-    </View>
-    <Text style={estilos.lance}>{formataDecimalParaReal(valor)}</Text>
+    <>
+      <View style={estilos.inicio}>
+        <FontAwesome5 name="hand-paper" size={24} color={cor} />
+        <Text style={estilos.identificador}>#{id}</Text>
+      </View>
+      <Text style={estilos.lance}>{formataDecimalParaReal(valor)}</Text>
+    </>
   </Cartao>
 
 }
