@@ -4,7 +4,7 @@ import { BlurView } from 'expo-blur';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { ENVIADO } from '../../../negocio/constantes/estadosLance';
 
-export default function EnviaLance({ enviaLance, cor }) {
+export default function EnviaLance({ enviaLance, cor }: any) {
   const [valor, setValor] = useState('');
   const [erro, setErro] = useState('');
   const [sucesso, setSucesso] = useState('');
@@ -32,15 +32,15 @@ export default function EnviaLance({ enviaLance, cor }) {
   return <BlurView intensity={Platform.OS === 'ios' ? 10 : 100} style={estilos.fundo} tint="light">
     {!!erro && <Text style={estilos.erro}>{erro}</Text>}
     {!!sucesso && <Text style={estilos.sucesso}>{sucesso}</Text>}
-    <TextInput 
-      value={valor} 
+    <TextInput
+      value={valor}
       onChangeText={setValor}
       placeholder="R$"
       editable={!enviando}
       style={estilos.entrada}
       keyboardType="decimal-pad"
     />
-    <TouchableOpacity 
+    <TouchableOpacity
       onPress={validaEnvio}
       disabled={enviando}
       style={estilos.botao}>
@@ -49,7 +49,7 @@ export default function EnviaLance({ enviaLance, cor }) {
   </BlurView>
 }
 
-const funcaoEstilos = (cor, erro) => StyleSheet.create({
+const funcaoEstilos = (cor: string, erro: string) => StyleSheet.create({
   fundo: {
     position: 'absolute',
     bottom: 0,

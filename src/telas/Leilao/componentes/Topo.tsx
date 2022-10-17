@@ -5,8 +5,9 @@ import Icone from '../../../componentes/Icone';
 
 import { formataDecimalParaReal } from '../../../negocio/formatadores/moeda';
 import { formataMaiorLanceDoLeilao } from '../../../negocio/formatadores/lance';
+import Leilao from '../../../interfaces/leilao';
 
-export default function Topo({ nome, descricao, lances, valorInicial, cor, icone }) {
+export default function Topo({ nome, descricao, lances, valorInicial, cor, icone }:Leilao) {
   const maiorLance = formataMaiorLanceDoLeilao(lances, valorInicial);
 
   return <>

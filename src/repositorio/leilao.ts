@@ -9,11 +9,11 @@ export async function obtemLeiloes() {
   }
 }
 
-export async function obtemLeilao(id) {
+export async function obtemLeilao(id: number) {
   try {
     const resposta = await apiLeiloes.get(`/leiloes/${id}`);
     return resposta.data;
-  } catch(erro) {
+  } catch (erro) {
     return {};
   }
 }

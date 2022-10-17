@@ -6,15 +6,16 @@ import { FlatList, View, StyleSheet } from 'react-native';
 import Topo from './componentes/Topo';
 import Lance from './componentes/Lance';
 import EnviaLance from './componentes/EnviaLance';
+import { VALIDO } from '../../negocio/constantes/estadosLance';
 
 export default function Leilao() {
   const route = useRoute();
   const [carregando, setCarregando] = useState(false);
 
-  const id = route.params.id;
-  const [ leilao, obtemLeilao, enviaLance ] = useLeilao(id);
-  
-  const novoLance = async (valor) => {
+  const id: number = route.params.id;
+  const [leilao, obtemLeilao, enviaLance] = useLeilao(id);
+
+  const novoLance = async (valor: string) => {
     const estadoLance = await enviaLance(valor);
     if (estadoLance.valido)
       await atualizaLeilao();
@@ -35,7 +36,7 @@ export default function Leilao() {
   return <>
     <FlatList
       data={leilao.lances}
-      keyExtractor={(leilao) => leilao.id}
+      keyExtractor={(leilao) => leilao.id.toString()}
       renderItem={({ item }) => <Lance {...item} cor={leilao.cor} />}
       ListHeaderComponent={() => <Topo {...leilao} />}
       onRefresh={atualizaLeilao}

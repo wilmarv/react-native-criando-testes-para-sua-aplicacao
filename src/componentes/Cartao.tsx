@@ -1,8 +1,7 @@
 import React from 'react';
+import { View, StyleSheet, ViewStyle } from 'react-native';
 
-import { View, StyleSheet } from 'react-native';
-
-export default function Cartao({ children, style, Componente = View, ...props }) {
+export default function Cartao({ children, style, Componente = View, ...props }: ICartao) {
   return <Componente style={[estilos.cartao, style]} {...props}>
     {children}
   </Componente>
@@ -25,3 +24,9 @@ const estilos = StyleSheet.create({
     elevation: 4,
   }
 });
+
+interface ICartao {
+  children: JSX.Element,
+  style: ViewStyle,
+  Componente?: any,
+}

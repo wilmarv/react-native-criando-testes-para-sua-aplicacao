@@ -4,17 +4,18 @@ import { adicionaLance, obtemLancesDoLeilao } from '../repositorio/lance';
 import { validaLance, validaFormatoNumericoDoLance } from '../negocio/validadores/lance';
 import { formataBrasileiroParaDecimal } from '../negocio/formatadores/moeda';
 import { VALIDO, NAO_ENVIADO, ENVIADO } from '../negocio/constantes/estadosLance';
+import Leilao from '../interfaces/leilao';
 
-export default function useLeilao(id) {
-  const [leilao, setLeilao] = useState({});
+export default function useLeilao(id: number): [Leilao, () => Promise<void>,(valor: string) => Promise<string>] {
+  const [leilao, setLeilao] = useState<Leilao>({});
 
   const atualizaLeilao = async () => {
     const leilaoAtualizado = await obtemLeilao(id);
     const lancesAtualizados = await obtemLancesDoLeilao(id);
     setLeilao({ ...leilaoAtualizado, lances: lancesAtualizados });
   };
-  
-  const enviaLance = async (valor) => {
+
+  const enviaLance = async (valor: string) => {
     const estadoFormatoLance = validaFormatoNumericoDoLance(valor);
     if (estadoFormatoLance !== VALIDO) {
       return estadoFormatoLance;
@@ -26,9 +27,9 @@ export default function useLeilao(id) {
       return estadoLance;
     }
 
-    const lanceFormatado = { 
-      valor: valorNumerico, 
-      leilaoId: leilao.id 
+    const lanceFormatado = {
+      valor: valorNumerico,
+      leilaoId: leilao.id
     };
 
     const adicionado = await adicionaLance(lanceFormatado);
@@ -44,6 +45,5 @@ export default function useLeilao(id) {
     atualizaLeilao();
   }, []);
 
-  return [ leilao, atualizaLeilao, enviaLance ];
+  return [leilao, atualizaLeilao, enviaLance];
 }
-

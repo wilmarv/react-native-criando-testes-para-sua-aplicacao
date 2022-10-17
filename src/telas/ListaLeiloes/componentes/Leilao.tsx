@@ -6,24 +6,27 @@ import Icone from '../../../componentes/Icone';
 import Cartao from '../../../componentes/Cartao';
 
 import { formataDecimalParaReal } from '../../../negocio/formatadores/moeda';
+import PropsLeilao from '../../../interfaces/leilao';
 
-export default function Leilao({ id, nome, valorInicial, icone, cor }) {
+export default function Leilao({ id, nome, valorInicial, icone, cor }: PropsLeilao) {
   const navigation = useNavigation();
 
   return (
-    <Cartao 
+    <Cartao
       onPress={() => navigation.navigate('Leilao', { id })}
       style={estilos.cartao}
       Componente={TouchableOpacity}
     >
-      <Icone cor={cor} nome={icone} style={estilos.topo} />
-      <View style={estilos.info}>
-        <Text style={estilos.nome}>{nome}</Text>
-        <View style={estilos.valor}>
-          <Text style={estilos.legendaLance}>Valor Inicial</Text>
-          <Text style={estilos.valorLance}>{formataDecimalParaReal(valorInicial)}</Text>
+      <>
+        <Icone cor={cor} nome={icone} style={estilos.topo} />
+        <View style={estilos.info}>
+          <Text style={estilos.nome}>{nome}</Text>
+          <View style={estilos.valor}>
+            <Text style={estilos.legendaLance}>Valor Inicial</Text>
+            <Text style={estilos.valorLance}>{formataDecimalParaReal(valorInicial)}</Text>
+          </View>
         </View>
-      </View>
+      </>
     </Cartao>
   );
 }

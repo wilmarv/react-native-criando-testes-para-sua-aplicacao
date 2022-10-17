@@ -1,9 +1,7 @@
-import React from 'react';
-
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ViewStyle } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export default function Icone({ nome, cor, style }) {
+export default function Icone({ nome, cor, style }: IIcone) {
   const estilos = funcaoEstilos(cor);
 
   return <View style={[estilos.fundo, style]}>
@@ -11,7 +9,7 @@ export default function Icone({ nome, cor, style }) {
   </View>
 }
 
-const funcaoEstilos = (cor) => StyleSheet.create({
+const funcaoEstilos = (cor: string) => StyleSheet.create({
   fundo: {
     backgroundColor: cor || '#093366',
     justifyContent: 'center',
@@ -19,3 +17,9 @@ const funcaoEstilos = (cor) => StyleSheet.create({
     padding: 16,
   },
 });
+
+interface IIcone {
+  nome: string,
+  cor: string,
+  style: ViewStyle,
+}
