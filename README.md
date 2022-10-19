@@ -1,48 +1,65 @@
-![Thumbnails GitHub](https://user-images.githubusercontent.com/9091491/159780661-3d933822-163c-4ec7-8636-7b0ab3191b0e.png)
+# Testes com React-Native
 
-# Aplicação de leilões
+Projeto desenvolvido durante o curso ![React Native: criando testes para sua aplicação ](https://cursos.alura.com.br/course/react-native-criando-testes-aplicacao).
+Uma aplicação de Simula envio de lance para itens de leilão para Android e IOS com React Native com ambiente nativo.
 
-Projeto do curso de React Native: Criando Testes para Sua Aplicação na Alura.
+## 🚀 Começando
 
-## 🔨 Funcionalidades do projeto
+Instruções para executar projeto na maquina local.
 
-Neste projeto, temos uma lista de leilões e uma tela de leião que permite enviar lances.
-Com base nessa aplicação iremos criar testes.
+### 📋 Pré-requisitos
 
-![image](https://user-images.githubusercontent.com/9091491/159780701-12e127ea-097d-4465-b39a-3c490861d9b7.png)
+#### Windows / Linux
 
-## ✔️ Técnicas e tecnologias utilizadas
+ * ![chocolatey](https://chocolatey.org/install)
+ * ![Node Js](https://nodejs.org/en/download/)
+ * ![JDK](https://www.oracle.com/br/java/technologies/downloads/)
+ * ![Android Studio](https://developer.android.com/studio/install?hl=pt-br)
 
-- `Utilizar React Native com Expo`: O expo facilita a configuração do ambiente;
-- `Utilizar a biblioteca jest`: Biblioteca indicada pelo React Native;
-- `Criar testes de unidade`: Usando a biblioteca jest para criar os testes de uma função;
-- `Gerar porcentagem de coverage`: Configurar o jest para gerar a porcentagem de código testado;
-- `Criar testes com mocks`: Usando o jest para simular coportamentos;
-- `Utilizar a biblioteca @testing-library/react-native`: Biblioteca robusta para renderizar e testar componentes em memória;
-- `Criar testes de componente renderizado em memória`: Preenchendo campos, pressionando botões e mais;
-- `Utilizar a biblioteca @testing-library/react-hooks`: Biblioteca que permite testes de hooks com facilidade;
-- `Criar testes de hooks`: Testando a execução de hooks sem a necesidade de mocks dos hooks nativos.
+#### MacOs
 
-## 📁 Acesso ao projeto
+ * ![HomeBrew](https://brew.sh/index_pt-br)
+ * ![Node Js](https://nodejs.org/en/download/)
+ * ![Watchman](https://facebook.github.io/watchman/docs/install.html#-homebrew)
+ * ![JDK](https://www.oracle.com/br/java/technologies/downloads/)
+ * ![Android Studio](https://developer.android.com/studio/install?hl=pt-br)
 
-Você pode acessar as seguintes branches do projeto para navegar entre as aulas e desafios:
+ 
+### 🔧 Instalação
 
-- [Projeto Inicial](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao) ([baixar o zip](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/archive/refs/heads/main.zip))
-- [Aula 1 completa](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/Aula1)
-- [Aula 2 completa](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/Aula2)
-  - [Faça como eu Fiz](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/FCEFAula2)
-- [Aula 3 completa](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/Aula3)
-  - [Faça como eu Fiz](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/FCEFAula3)
-- [Aula 4 completa](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/Aula4)
-  - [Faça como eu Fiz](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/FCEFAula4)
-  - [Desafio do Coverage 100%](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/tree/DesafioCoverage)
+#### Baixar dependencia do projeto.
 
-Além disso, todos os _commits_ do curso estão disponíveis a partir [deste link](https://github.com/alura-cursos/react-native-criando-testes-para-sua-aplicacao/commits/DesafioCoverage)!
+Abrindo o terminal no diretorio do projeto execute o comando
 
-## 🛠️ Abrir e rodar o projeto
+```
+npm install
+```
+ou
+```
+yarn
+```
+ 
+#### Configurações iniciais
+No arquivo package.json na chave "script.api" altere para "npx json-server --host {ip host sua maquina} --watch db.json".
+Em seguida no diretorio /src/servicos/apiLeiloes.ts e no atributo baseURL altere para o ip host sua maquina.
 
-Para instalar o React Native com Expo na sua máquina, siga os passos do [artigo de configuração de ambiente](https://www.alura.com.br/artigos/como-instalar-configurar-expo-do-react-native).
+### ⚙️ Inicializando Serve Json
+Continuando com o terminal no diretorio do projeto execute 
 
-## 📚 Mais informações do curso
+```
+npm api
+```
+ou
+```
+yarn api
+```
 
-https://www.alura.com.br/curso-online-react-native-criando-testes-aplicacao
+### 📱 Executando test
+
+```
+npm test
+```
+ou
+```
+yarn test
+```
